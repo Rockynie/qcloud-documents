@@ -41,8 +41,10 @@ curl -LO https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/
 ```
 3. 执行如下命令，验证文件的完整性。
 ```
-md5sum goosefs-lite-1.0.0.tar.gz
+md5sum --check goosefs-lite-1.0.0-md5.txt
 ```
+执行以上三步后，当看到如下图所示，则表示文件完整性验证通过。
+![](https://qcloudimg.tencent-cloud.cn/raw/408ed5acc4d6d0866499f94362fe70aa.png)
 
 
 ### 步骤3：配置密钥文件
@@ -83,7 +85,7 @@ md5sum goosefs-lite-1.0.0.tar.gz
 </configuration>
 ```
 
-如果您挂载的是元数据加速存储桶，则需要您先对元数据加速存储桶进行如下配置：
+如果您挂载的是 [元数据加速](https://cloud.tencent.com/document/product/436/56971) 存储桶，则需要您先对元数据加速存储桶进行如下配置：
 1. 性能配置 > HDFS 权限配置 > HDFS 用户配置，添加超级用户，例如 root。
 2. 性能配置 > HDFS 权限配置 > HDFS 权限配置，添加访问 COS 存储桶的 VPC 和 IP 地址信息。
 3. 在本机执行如下命令，添加 hadoop 用户和 supergroup 组。
